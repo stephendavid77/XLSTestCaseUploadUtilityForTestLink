@@ -1,0 +1,11 @@
+# Build output
+target/*
+test-output/*
+velocity.log
+
+.idea/
+**/.idea/
+.DS_Store
+*.iml
+
+/target/

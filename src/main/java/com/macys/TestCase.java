@@ -39,6 +39,7 @@ class TestCase {
             if (steps.getStepList().isEmpty() || steps.getStepList().stream().filter(step1 -> step1.getStepNumber().equals(stepNumber)).count() != 1) {
                 Step newStep = new Step();
                 newStep.setStepNumber(stepNumber);
+                steps.addStep(newStep);
             } else {
                 System.out.println("Step number is already defined");
             }
@@ -46,37 +47,51 @@ class TestCase {
     }
 
     public void setStepActions(String stepActions, String stepNumber) {
-        if (stepActions != null && !stepActions.isEmpty()) {
-            steps.getStepList().stream().forEach(step1 -> {
-                if (step1.getStepNumber() == stepNumber) {
-                    step1.setActions(stepActions);
-
-                } else {
-                    Step newStep = new Step();
-                    newStep.setStepNumber(stepNumber);
-                    newStep.setActions(stepActions);
-                    steps.addStep(newStep);
-                }
-            });
+        boolean isStepActionSet = false;
+        for(Step step : steps.getStepList()){
+            if (step.getStepNumber() == stepNumber) {
+                step.setActions(stepActions);
+                isStepActionSet = true;
+            }
+        }
+        if(!isStepActionSet) {
+            Step newStep = new Step();
+            newStep.setStepNumber(stepNumber);
+            newStep.setActions(stepActions);
+            steps.addStep(newStep);
         }
     }
 
     public void setExpectedResults(String expectedResults, String stepNumber) {
-        if (expectedResults != null && !expectedResults.isEmpty()) {
-            steps.getStepList().stream().forEach(step1 -> {
-                if (step1.getStepNumber() == stepNumber) {
-                    step1.setExpectedResults(expectedResults);
-                } else {
-                    Step newStep = new Step();
-                    newStep.setStepNumber(stepNumber);
-                    newStep.setExpectedResults(expectedResults);
-                    steps.addStep(newStep);
-                }
-            });
+        boolean isExpectedResultsSet = false;
+        for(Step step : steps.getStepList()){
+            if (step.getStepNumber() == stepNumber) {
+                step.setExpectedResults(expectedResults);
+                isExpectedResultsSet = true;
+            }
+        }
+        if(!isExpectedResultsSet) {
+            Step newStep = new Step();
+            newStep.setStepNumber(stepNumber);
+            newStep.setExpectedResults(expectedResults);
+            steps.addStep(newStep);
         }
     }
 
     public void setStepExecutionType(String executionType, String stepNumber) {
+        boolean isExecutionTypeSet = false;
+        for(Step step : steps.getStepList()){
+            if (step.getStepNumber() == stepNumber) {
+                step.setExecutionType(executionType);
+                isExecutionTypeSet = true;
+            }
+        }
+        if(!isExecutionTypeSet) {
+            Step newStep = new Step();
+            newStep.setStepNumber(stepNumber);
+            newStep.setExecutionType(executionType);
+            steps.addStep(newStep);
+        }
         if (executionType != null && !executionType.isEmpty()) {
             steps.getStepList().stream().forEach(step1 -> {
                 if (step1.getStepNumber() == stepNumber) {

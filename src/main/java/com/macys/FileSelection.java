@@ -93,7 +93,7 @@ public class FileSelection
                 }
                 Object excel = localBackupPathText.getText();
                 Object xml = textField.getText();
-                XLSXMLConversion xlsxmlConversion = new XLSXMLConversion();
+                XLSToXMLConverterAction xlsxmlConversion = new XLSToXMLConverterAction();
                 System.err.println("Input Parameters to poiExample.convertFile ");
                 System.err.println("XLS File name: " + excel.toString());
                 System.err.println("XML File name: " + xml.toString());

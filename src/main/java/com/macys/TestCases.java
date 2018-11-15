@@ -19,5 +19,4 @@ class TestCases {
     public void addToTestCasesList(TestCase testCase) {
         testCasesList.add(testCase);
     }
-
 }

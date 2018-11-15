@@ -10,13 +10,4 @@ public @Data
 class Keyword {
     private String keywordName;
     private String notes;
-
-    public void setKeywordName(String keywordName) {
-        this.keywordName = keywordName;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
 }

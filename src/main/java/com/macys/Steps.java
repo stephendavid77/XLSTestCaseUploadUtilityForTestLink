@@ -19,5 +19,4 @@ class Steps {
     public void addStep(Step step) {
         stepList.add(step);
     }
-
 }

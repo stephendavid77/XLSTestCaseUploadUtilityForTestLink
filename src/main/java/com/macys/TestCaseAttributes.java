@@ -4,7 +4,6 @@ package com.macys;
  * Created by m932317 on 11/12/18.
  */
 public interface TestCaseAttributes {
-
     final String SERIAL_NO = "S No";
     final String TC_NAME = "name";
     final String SUMMARY = "summary";
@@ -24,6 +23,4 @@ public interface TestCaseAttributes {
     final String MANUAL_TC_REASON = "Manual TC Reason";
     final String COMMENTS = "Comments";
     final String NOTES = "notes";
-
-
 }

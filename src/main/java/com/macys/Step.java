@@ -15,6 +15,4 @@ class Step {
     public void setExecutionType(String executionType) {
         this.executionType = executionType.equals("Automated") ? "2" : "1";
     }
-
-
 }

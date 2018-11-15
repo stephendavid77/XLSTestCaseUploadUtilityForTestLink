@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /*
     This is an existing implementation and has been re-used/retained
@@ -106,8 +108,14 @@ public class FileSelection
                 logger.debug("Input Parameters to poiExample.convertFile ");
                 logger.debug("XLS File name: " + excel.toString());
                 logger.debug("XML File name: " + xml.toString());
-                xlsxmlConversion.transformXLSToXML(excel.toString(), xml.toString());
-                logTextArea.append("Xml file has been generated to the following location: " + xml.toString() + System.getProperty("line.separator"));
+                try {
+                    xlsxmlConversion.transformXLSToXML(excel.toString(), xml.toString());
+                    logTextArea.append("XML file has been generated in following location: " + xml.toString() + System.getProperty("line.separator"));
+                } catch (Exception e1) {
+                    StringWriter errors = new StringWriter();
+                    e1.printStackTrace(new PrintWriter(errors));
+                    logTextArea.append("An error occurred: " + errors.toString());
+                }
             }
         });
         setDefaultCloseOperation(3);

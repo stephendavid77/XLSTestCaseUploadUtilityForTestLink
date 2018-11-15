@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testcases>
+  <testcase name="Validate the Recently Viewed Items section's location and UI">
+    <summary><![CDATA[Validate the Recently Viewed Items section's location and UI]]></summary>
+    <preconditions><![CDATA[User should have viewed at least 2 products within the app]]></preconditions>
+    <execution_type><![CDATA[2]]></execution_type>
+    <importance><![CDATA[1]]></importance>
+    <steps>
+      <step>
+        <step_number><![CDATA[1]]></step_number>
+        <actions><![CDATA[Launch the app]]></actions>
+        <expectedresults><![CDATA[App should be launched]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[2]]></step_number>
+        <actions><![CDATA[Scroll down on the Home page]]></actions>
+        <expectedresults><![CDATA[Recently Viewed Items section should display below the marketing banner on the Home page]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[3]]></step_number>
+        <actions><![CDATA[Verify the Recently Viewed Items section]]></actions>
+        <expectedresults><![CDATA[Section header copy should be “Recently Viewed Items"" in bold black color."]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[4]]></step_number>
+        <actions><![CDATA[Repeat for signed-in user]]></actions>
+        <expectedresults><![CDATA[same as above]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+    </steps>
+    <keywords/>
+    <custom_fields>
+      <custom_field>
+        <name><![CDATA[script_name]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[User Story]]></name>
+        <value><![CDATA[B-107223]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Tenant]]></name>
+        <value><![CDATA[MCOM]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[TestCaseType]]></name>
+        <value><![CDATA[Regression]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Automation Feasible]]></name>
+        <value><![CDATA[Yes]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Manual TC Reason]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Comments]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+    </custom_fields>
+  </testcase>
+  <testcase name="Validate the Recently Viewed Items section is not shown if the user has never viewed a product or has only viewed 1 product within the app">
+    <summary><![CDATA[Validate the Recently Viewed Items section is not shown if the user has never viewed a product or has only viewed 1 product within the app.]]></summary>
+    <preconditions><![CDATA[User shouldn't have accessed her home page]]></preconditions>
+    <execution_type><![CDATA[1]]></execution_type>
+    <importance><![CDATA[1]]></importance>
+    <steps>
+      <step>
+        <step_number><![CDATA[1]]></step_number>
+        <actions><![CDATA[Launch the app]]></actions>
+        <expectedresults><![CDATA[App should be launched]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[2]]></step_number>
+        <actions><![CDATA[Scroll down on the Home page]]></actions>
+        <expectedresults><![CDATA[Recently Viewed Items section should not display the first time the user accesses her homepage after initially downloading.]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[3]]></step_number>
+        <actions><![CDATA[Verify the Recently Viewed Items section]]></actions>
+        <expectedresults><![CDATA[PDP page should open]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[4]]></step_number>
+        <actions><![CDATA[Search for something and land on the PDP]]></actions>
+        <expectedresults><![CDATA[Recently Viewed Items section should not display if the user has never viewed a product or has only viewed 1 product within the app]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[5]]></step_number>
+        <actions><![CDATA[Navigate back to Home page and verify]]></actions>
+        <expectedresults><![CDATA[same as above]]></expectedresults>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+      <step>
+        <step_number><![CDATA[6]]></step_number>
+        <actions><![CDATA[Repeat for signed-in user]]></actions>
+        <expectedresults/>
+        <execution_type><![CDATA[1]]></execution_type>
+      </step>
+    </steps>
+    <keywords/>
+    <custom_fields>
+      <custom_field>
+        <name><![CDATA[script_name]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[User Story]]></name>
+        <value><![CDATA[B-107224]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Tenant]]></name>
+        <value><![CDATA[MCOM]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[TestCaseType]]></name>
+        <value><![CDATA[Regression]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Automation Feasible]]></name>
+        <value><![CDATA[Yes]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Manual TC Reason]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+      <custom_field>
+        <name><![CDATA[Comments]]></name>
+        <value><![CDATA[NA]]></value>
+      </custom_field>
+    </custom_fields>
+  </testcase>
+</testcases>

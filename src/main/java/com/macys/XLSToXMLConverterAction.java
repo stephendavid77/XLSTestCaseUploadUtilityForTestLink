@@ -40,13 +40,8 @@ public class XLSToXMLConverterAction {
         * @param  xlsFileName  an absolute URL giving the base location of the .xls file containing Test Case
         * @return TestCases    returns TestCases object which holds a list of Test Case objects parsed from the .xls
      */
-    public boolean transformXLSToXML(String xlsFileName, String xmlFileName) {
-        try {
-            return generateXMLFile(parseXLSFile(xlsFileName), xmlFileName);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+    public boolean transformXLSToXML(String xlsFileName, String xmlFileName) throws Exception {
+        return generateXMLFile(parseXLSFile(xlsFileName), xmlFileName);
     }
 
     /*

@@ -177,8 +177,9 @@ public class XLSToXMLConverterAction {
     }
 
     /*
-        This method returns the corresponding index of a given Header in .xls file
-        * @param  Test Case Header Name
+        This method generates the required xml file from TestCases object
+        * @param  testCasesList Object contains a list of all test cases parsed from .xls file
+        * @param  xmlFilePath Output XML file name & directory
         * @return corresponding index/position of the Header in .xls
      */
     public boolean generateXMLFile(TestCases testCaseList, String xmlFilePath) throws ParserConfigurationException {

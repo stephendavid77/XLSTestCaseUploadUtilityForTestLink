@@ -1,6 +1,8 @@
 package com.macys;
 
 import lombok.Data;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
@@ -9,6 +11,9 @@ import java.util.Arrays;
  */
 public @Data
 class TestCase {
+
+    final Logger logger = LogManager.getLogger(TestCase.class.getName());
+
     private String name;
     private String summary;
     private String preConditions;
@@ -34,14 +39,14 @@ class TestCase {
 
     public void setStepNumber(String stepNumber) {
         if (stepNumber != null && !stepNumber.isEmpty()) {
-            System.err.println("Steps Object: " + steps);
-            System.err.println("Step List Object: " + steps.getStepList());
+            logger.debug("Steps Object: " + steps);
+            logger.debug("Step List Object: " + steps.getStepList());
             if (steps.getStepList().isEmpty() || steps.getStepList().stream().filter(step1 -> step1.getStepNumber().equals(stepNumber)).count() != 1) {
                 Step newStep = new Step();
                 newStep.setStepNumber(stepNumber);
                 steps.addStep(newStep);
             } else {
-                System.out.println("Step number is already defined");
+                logger.debug("Step number is already defined");
             }
         }
     }
@@ -91,18 +96,6 @@ class TestCase {
             newStep.setStepNumber(stepNumber);
             newStep.setExecutionType(executionType);
             steps.addStep(newStep);
-        }
-        if (executionType != null && !executionType.isEmpty()) {
-            steps.getStepList().stream().forEach(step1 -> {
-                if (step1.getStepNumber() == stepNumber) {
-                    step1.setExecutionType(executionType);
-                } else {
-                    Step newStep = new Step();
-                    newStep.setStepNumber(stepNumber);
-                    newStep.setExecutionType(executionType);
-                    steps.addStep(newStep);
-                }
-            });
         }
     }
 

@@ -1,5 +1,8 @@
 package com.macys;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -7,9 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/*
+    This is an existing implementation and has been re-used/retained
+ */
 
 public class FileSelection
         extends JFrame {
+
+    final Logger logger = LogManager.getLogger(FileSelection.class.getName());
+
     JButton submitButton = new JButton("Submit");
     JPanel panel = new JPanel();
     private JTextField textField;
@@ -94,15 +103,12 @@ public class FileSelection
                 Object excel = localBackupPathText.getText();
                 Object xml = textField.getText();
                 XLSToXMLConverterAction xlsxmlConversion = new XLSToXMLConverterAction();
-                System.err.println("Input Parameters to poiExample.convertFile ");
-                System.err.println("XLS File name: " + excel.toString());
-                System.err.println("XML File name: " + xml.toString());
+                logger.debug("Input Parameters to poiExample.convertFile ");
+                logger.debug("XLS File name: " + excel.toString());
+                logger.debug("XML File name: " + xml.toString());
                 xlsxmlConversion.transformXLSToXML(excel.toString(), xml.toString());
                 logTextArea.append("Xml file has been generated to the following location: " + xml.toString() + System.getProperty("line.separator"));
-
             }
-
-
         });
         setDefaultCloseOperation(3);
         setVisible(true);

@@ -17,7 +17,7 @@ or follow steps
 2. Sample input file: https://github.com/srinivasanarulsivam/XLSTestCaseUploadUtilityForTestLink/blob/master/src/main/resources/SampleTestCaseFormat.xls
 3. Sample output file: https://github.com/srinivasanarulsivam/XLSTestCaseUploadUtilityForTestLink/blob/master/src/main/resources/sample-output.xml
 4.Ensure the fields are populated correctly before you attempt to convert to XML. Field values have a vital role in output genration
-5.You can find below the list of acceptable field values
+5.Below is the list of acceptable field values:
  
  | Execution Type | Keywords            | Tenant | Test Type  | Importance | Automation Feasibility |          Manual TC Reason         |
 |----------------|---------------------|--------|------------|------------|------------------------|:---------------------------------:|

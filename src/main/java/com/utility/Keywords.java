@@ -1,4 +1,4 @@
-package com.macys;
+package com.utility;
 
 import lombok.Data;
 

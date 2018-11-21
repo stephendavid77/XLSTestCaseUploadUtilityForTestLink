@@ -1,4 +1,4 @@
-package com.macys;
+package com.utility;
 
 /**
  * Created by m932317 on 11/12/18.

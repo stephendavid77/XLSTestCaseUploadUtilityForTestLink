@@ -158,7 +158,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>com.macys.FileSelection</mainClass>
+                    <mainClass>com.utility.FileSelection</mainClass>
                     <includePluginDependencies>false</includePluginDependencies>
                 </configuration>
             </plugin>
@@ -177,7 +177,7 @@
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>com.macys.FileSelection</mainClass>
+                            <mainClass>com.utility.FileSelection</mainClass>
                         </manifest>
                     </archive>
 

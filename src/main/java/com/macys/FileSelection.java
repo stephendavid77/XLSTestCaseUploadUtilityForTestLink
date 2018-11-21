@@ -123,7 +123,7 @@ public class FileSelection
     }
 
     public static void main(String[] args) {
-        FileSelection frameTabel = new FileSelection();
+        new FileSelection();
     }
 
     private boolean validateFeed() {
@@ -145,7 +145,7 @@ public class FileSelection
         if (!textField.getText().isEmpty()) {
             textField.setBorder(BorderFactory.createEmptyBorder());
         }
-        if ((!localBackupPathText.getText().isEmpty()) && (!textField.getText().isEmpty())) {
+        if (!localBackupPathText.getText().isEmpty() && !textField.getText().isEmpty()) {
             valid = true;
         }
         return valid;

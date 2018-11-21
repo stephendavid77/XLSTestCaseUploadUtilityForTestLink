@@ -4,8 +4,6 @@ import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
-
 /**
  * Created by m932317 on 11/12/18.
  */
@@ -53,13 +51,13 @@ class TestCase {
 
     public void setStepActions(String stepActions, String stepNumber) {
         boolean isStepActionSet = false;
-        for(Step step : steps.getStepList()){
+        for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
                 step.setActions(stepActions);
                 isStepActionSet = true;
             }
         }
-        if(!isStepActionSet) {
+        if (!isStepActionSet) {
             Step newStep = new Step();
             newStep.setStepNumber(stepNumber);
             newStep.setActions(stepActions);
@@ -69,13 +67,13 @@ class TestCase {
 
     public void setExpectedResults(String expectedResults, String stepNumber) {
         boolean isExpectedResultsSet = false;
-        for(Step step : steps.getStepList()){
+        for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
                 step.setExpectedResults(expectedResults);
                 isExpectedResultsSet = true;
             }
         }
-        if(!isExpectedResultsSet) {
+        if (!isExpectedResultsSet) {
             Step newStep = new Step();
             newStep.setStepNumber(stepNumber);
             newStep.setExpectedResults(expectedResults);
@@ -85,13 +83,13 @@ class TestCase {
 
     public void setStepExecutionType(String executionType, String stepNumber) {
         boolean isExecutionTypeSet = false;
-        for(Step step : steps.getStepList()){
+        for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
                 step.setExecutionType(executionType);
                 isExecutionTypeSet = true;
             }
         }
-        if(!isExecutionTypeSet) {
+        if (!isExecutionTypeSet) {
             Step newStep = new Step();
             newStep.setStepNumber(stepNumber);
             newStep.setExecutionType(executionType);
@@ -100,12 +98,10 @@ class TestCase {
     }
 
     public void setKeyword(String keyword) {
-        if (keyword != null && !keyword.isEmpty() && keyword.contains(",")) {
-            Arrays.asList(keyword.split(",")).stream().forEach(str -> {
-                Keyword keyword1 = new Keyword();
-                new Keyword().setKeywordName(str);
-                keywords.getKeywordList().add(keyword1);
-            });
+        if (keyword != null && !keyword.isEmpty()) {
+            Keyword keyword1 = new Keyword();
+            keyword1.setKeywordName(keyword);
+            keywords.getKeywordList().add(keyword1);
         }
     }
 

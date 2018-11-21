@@ -31,8 +31,6 @@ import java.util.stream.IntStream;
 public class XLSToXMLConverterAction {
 
     final Logger logger = LogManager.getLogger(XLSToXMLConverterAction.class.getName());
-
-    private ArrayList<TestCase> testCaseList = null; //An ArrayList holding unique Test case in each index
     private HashMap<String, Integer> testCaseHeaderMap = null; //A Map holding Test Case Header & respective column index from xls
 
     /*
@@ -95,7 +93,6 @@ public class XLSToXMLConverterAction {
                  */
 
                 if (rowData != null && rowData.contains(TestCaseAttributes.TC_NAME)) {
-                    testCaseList = new ArrayList<>(); //Initializing ArrayList indicating the xls sheet has valid Headers
                     testCaseHeaderMap = new HashMap<>(); //Initializing Header Map indicating the xls sheet has valid Headers
                     IntStream.range(0, rowData.size())
                             .forEach(index -> {
@@ -192,7 +189,6 @@ public class XLSToXMLConverterAction {
         Element root = document.createElement("testcases");
         document.appendChild(root);
         testCaseList.getTestCasesList().stream().forEach(testCaseObj -> {
-            System.err.println("Inside testCaseList.getTestCasesList().stream().forEach");
             /*
             <testcase> tag
              */

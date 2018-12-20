@@ -61,7 +61,7 @@ public class FileSelection
                 }
             }
         });
-        JLabel lblPassword = new JLabel("XML Path");
+        JLabel lblPassword = new JLabel("XML Output Directory");
         lblPassword.setBounds(10, 72, 80, 14);
         panel.add(lblPassword);
 

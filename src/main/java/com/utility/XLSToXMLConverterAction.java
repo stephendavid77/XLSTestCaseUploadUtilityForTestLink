@@ -1,5 +1,6 @@
 package com.utility;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.logging.log4j.LogManager;
@@ -38,8 +39,8 @@ public class XLSToXMLConverterAction {
         * @param  xlsFileName  an absolute URL giving the base location of the .xls file containing Test Case
         * @return TestCases    returns TestCases object which holds a list of Test Case objects parsed from the .xls
      */
-    public boolean transformXLSToXML(String xlsFileName, String xmlFileName) throws Exception {
-        return generateXMLFile(parseXLSFile(xlsFileName), xmlFileName);
+    public boolean transformXLSToXML(String xlsFilePath, String xmlFileName) throws Exception {
+        return generateXMLFile(parseXLSFile(xlsFilePath), xlsFilePath, xmlFileName);
     }
 
     /*
@@ -176,10 +177,11 @@ public class XLSToXMLConverterAction {
     /*
         This method generates the required xml file from TestCases object
         * @param  testCasesList Object contains a list of all test cases parsed from .xls file
+        * @param  xlsFilePath Input Excel file Path
         * @param  xmlFilePath Output XML file name & directory
         * @return corresponding index/position of the Header in .xls
      */
-    public boolean generateXMLFile(TestCases testCaseList, String xmlFilePath) throws ParserConfigurationException {
+    public boolean generateXMLFile(TestCases testCaseList, String xlsFilePath, String xmlFilePath) throws ParserConfigurationException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.newDocument();
@@ -310,7 +312,9 @@ public class XLSToXMLConverterAction {
             transformer.transform(domSource, result);
             logger.info("XML");
             logger.info(result.getWriter().toString());
-            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+            File outputFile = new File(xmlFilePath + "/" + FilenameUtils.getName(xlsFilePath).replaceAll(".xls", ".xml"));
+            outputFile.createNewFile();
+            StreamResult streamResult = new StreamResult(outputFile);
             transformer.transform(domSource, streamResult);
             logger.info("XML has been generated successfully at: " + xmlFilePath);
             return true;

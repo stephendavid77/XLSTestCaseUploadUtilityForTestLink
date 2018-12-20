@@ -32,7 +32,7 @@ class TestCase {
     }
 
     public void setImportance(String importance) {
-        this.importance = importance.equals("High") ? "1" : executionType.equals("Medium") ? "2" : "3";
+        this.importance = importance.equals("High") ? "3" : executionType.equals("Medium") ? "2" : "1";
     }
 
     public void setStepNumber(String stepNumber) {

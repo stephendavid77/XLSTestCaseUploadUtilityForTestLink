@@ -71,7 +71,7 @@ public class XLSToXMLConverterAction {
             while (rows.hasNext()) {
                 HSSFRow row = (HSSFRow) rows.next();
                 ArrayList<String> rowData = new ArrayList(); //An ArrayList holding data of the current row
-                int columnStart = Math.max(0, sheet.getFirstRowNum()); // Range of rows to process
+                int columnStart = Math.min(0, sheet.getFirstRowNum()); // Range of rows to process
                 int columnEnd = Math.min(18, sheet.getLastRowNum());
                 for (int columnNum = columnStart; columnNum < columnEnd; columnNum++) {
                     HSSFCell cell = (HSSFCell) row.getCell(columnNum, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);

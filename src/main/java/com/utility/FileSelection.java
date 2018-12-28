@@ -61,7 +61,7 @@ public class FileSelection
                 }
             }
         });
-        JLabel lblPassword = new JLabel("XML Output Directory");
+        JLabel lblPassword = new JLabel("XML output directory");
         lblPassword.setBounds(10, 72, 80, 14);
         panel.add(lblPassword);
 
@@ -109,8 +109,14 @@ public class FileSelection
                 logger.debug("XLS File name: " + excel.toString());
                 logger.debug("XML File name: " + xml.toString());
                 try {
-                    xlsxmlConversion.transformXLSToXML(excel.toString(), xml.toString());
-                    logTextArea.append("XML file has been generated in following location: " + xml.toString() + System.getProperty("line.separator"));
+                    boolean isSuccess  = xlsxmlConversion.transformXLSToXML(excel.toString(), xml.toString());
+                    if(isSuccess) {
+                        logTextArea.append("XML file has been generated in following location: " + xml.toString() + System.getProperty("line.separator"));
+                    }
+                    else{
+                        logTextArea.append("XML generation failed ");
+                        logTextArea.append(ErrorMessages.ERROR_MESSAGE);
+                    }
                 } catch (Exception e1) {
                     StringWriter errors = new StringWriter();
                     e1.printStackTrace(new PrintWriter(errors));

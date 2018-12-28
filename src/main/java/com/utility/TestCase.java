@@ -69,7 +69,7 @@ class TestCase {
         boolean isExpectedResultsSet = false;
         for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
-                step.setExpectedResults(expectedResults);
+                step.setExpectedResults(replaceNewLineCharacterWithHTMLEncoding(expectedResults));
                 isExpectedResultsSet = true;
             }
         }
@@ -110,5 +110,21 @@ class TestCase {
         customField.setName(name);
         customField.setValue(value);
         customFields.getCustomFieldsList().add(customField);
+    }
+
+    public void setSummary(String summary) {
+        this.summary = replaceNewLineCharacterWithHTMLEncoding(summary);
+    }
+
+    public void setPreConditions(String preConditions) {
+        this.preConditions = replaceNewLineCharacterWithHTMLEncoding(preConditions);
+    }
+
+    public String replaceNewLineCharacterWithHTMLEncoding(String input) {
+        if (input != null && !input.equals("") && input.contains(System.getProperty("line.separator"))) {
+            return input.replaceAll("\\n", "<br>");
+        } else {
+            return input;
+        }
     }
 }

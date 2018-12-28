@@ -313,11 +313,16 @@ public class XLSToXMLConverterAction {
             logger.info("XML");
             logger.info(result.getWriter().toString());
             File outputFile = new File(xmlFilePath + "/" + FilenameUtils.getName(xlsFilePath).replaceAll(".xls", ".xml"));
-            outputFile.createNewFile();
-            StreamResult streamResult = new StreamResult(outputFile);
-            transformer.transform(domSource, streamResult);
-            logger.info("XML has been generated successfully at: " + xmlFilePath);
-            return true;
+            if (new File(xmlFilePath).isDirectory()) {
+                outputFile.createNewFile();
+                StreamResult streamResult = new StreamResult(outputFile);
+                transformer.transform(domSource, streamResult);
+                logger.info("XML has been generated successfully at: " + xmlFilePath);
+                return true;
+            } else {
+                ErrorMessages.ERROR_MESSAGE = ErrorMessages.IS_NOT_DIRECTORY;
+                return false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             logger.info("XML generation failed");

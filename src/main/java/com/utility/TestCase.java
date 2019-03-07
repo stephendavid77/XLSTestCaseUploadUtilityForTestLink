@@ -69,7 +69,7 @@ class TestCase {
         boolean isExpectedResultsSet = false;
         for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
-                step.setExpectedResults(replaceNewLineCharacterWithHTMLEncoding(expectedResults));
+                step.setExpectedResults(expectedResults);
                 isExpectedResultsSet = true;
             }
         }

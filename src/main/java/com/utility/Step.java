@@ -1,5 +1,6 @@
 package com.utility;
 
+import com.github.rjeschke.txtmark.Processor;
 import lombok.Data;
 
 /**
@@ -15,4 +16,13 @@ class Step {
     public void setExecutionType(String executionType) {
         this.executionType = executionType.equals("Automated") ? "2" : "1";
     }
+
+    public String getActions() {
+        return Processor.process(actions);
+    }
+
+    public String getExpectedResults() {
+        return Processor.process(expectedResults);
+    }
 }
+

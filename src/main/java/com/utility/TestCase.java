@@ -1,5 +1,6 @@
 package com.utility;
 
+import com.github.rjeschke.txtmark.Processor;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,7 +70,7 @@ class TestCase {
         boolean isExpectedResultsSet = false;
         for (Step step : steps.getStepList()) {
             if (step.getStepNumber() == stepNumber) {
-                step.setExpectedResults(replaceNewLineCharacterWithHTMLEncoding(expectedResults));
+                step.setExpectedResults(expectedResults);
                 isExpectedResultsSet = true;
             }
         }
@@ -112,19 +113,19 @@ class TestCase {
         customFields.getCustomFieldsList().add(customField);
     }
 
+    public String getSummary() {
+        return Processor.process(summary);
+    }
+
     public void setSummary(String summary) {
-        this.summary = replaceNewLineCharacterWithHTMLEncoding(summary);
+        this.summary = summary;
+    }
+
+    public String getPreConditions() {
+        return Processor.process(preConditions);
     }
 
     public void setPreConditions(String preConditions) {
-        this.preConditions = replaceNewLineCharacterWithHTMLEncoding(preConditions);
-    }
-
-    public String replaceNewLineCharacterWithHTMLEncoding(String input) {
-        if (input != null && !input.equals("") && input.contains(System.getProperty("line.separator"))) {
-            return input.replaceAll("\\n", "<br>");
-        } else {
-            return input;
-        }
+        this.preConditions = preConditions;
     }
 }

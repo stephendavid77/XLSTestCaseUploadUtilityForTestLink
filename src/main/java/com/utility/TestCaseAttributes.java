@@ -15,7 +15,8 @@ public interface TestCaseAttributes {
     String STEP_ACTIONS = "Actions";
     String EXPECTED_RESULTS = "Expected Results";
     String KEYWORD = "Keywords";
-    String SCRIPT_NAME = "Script Name";
+    String SCRIPT_NAME = "script_name";
+    String SCRIPT_NAME_XLS_ALIAS = "Script Name";
     String USER_STORY = "User Story";
     String TENANT = "Tenant";
     String TEST_CASE_TYPE = "Test Type";

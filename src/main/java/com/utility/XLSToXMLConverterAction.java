@@ -130,7 +130,7 @@ public class XLSToXMLConverterAction {
                         newTestCase.setExpectedResults(rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.EXPECTED_RESULTS)), stepNumber);
                         newTestCase.setStepExecutionType(rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.STEP_EXECUTION_TYPE)), stepNumber);
                         newTestCase.setKeyword(rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.KEYWORD)));
-                        newTestCase.setCustomField(TestCaseAttributes.SCRIPT_NAME, rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.SCRIPT_NAME)));
+                        newTestCase.setCustomField(TestCaseAttributes.SCRIPT_NAME, rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.SCRIPT_NAME_XLS_ALIAS)));
                         newTestCase.setCustomField(TestCaseAttributes.USER_STORY, rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.USER_STORY)));
                         newTestCase.setCustomField(TestCaseAttributes.TENANT, rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.TENANT)));
                         newTestCase.setCustomField(TestCaseAttributes.TEST_CASE_TYPE, rowData.get(getColumnIndexOfTestCaseHeader(TestCaseAttributes.TEST_CASE_TYPE)));

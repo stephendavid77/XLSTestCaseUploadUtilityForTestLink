@@ -59,7 +59,12 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.github.rjeschke/txtmark -->
+        <dependency>
+            <groupId>com.github.rjeschke</groupId>
+            <artifactId>txtmark</artifactId>
+            <version>0.13</version>
+        </dependency>
 
 
         <!-- testing -->
